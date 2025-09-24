@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+  <meta charset="UTF-8" />
+  <title>PB-Lang: Punjabi Inspired Programming</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="https://bhashabytes.github.io/" class="site-logo" aria-label="BhashaBytes Home">
+    <img src="logo.png" alt="BhashaBytes Logo" />
+  </a>
+  <h1>PB-Lang: Punjabi-Inspired Programming</h1>
+
+  <div class="intro-card">
+    <p>
+      Welcome to <strong>PB-Lang</strong> – a programming language designed especially for Punjabi speakers!
+      PB-Lang makes coding more intuitive by using Punjabi words and their transliterations as keywords,
+      instead of English-based Python syntax. It’s beginner-friendly and runs fully on Python via a translation layer.
+    </p>
+    <p>
+      Write code below, run it instantly, and explore TL-Lang’s features with live examples. Learning programming
+      has never been this friendly!
+    </p>
+  </div>
+
+  <div class="container">
+    <textarea id="pbCode" rows="10" placeholder="ਆਪਣਾ ਪੰਜਾਬੀ ਕੋਡ ਇੱਥੇ ਲਿਖੋ...">dikhao("ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ PB-Lang!")</textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <pre id="output">Output will appear here...</pre>
+  </div>
+
+  <h2>Documentation & Examples</h2>
+  <div class="docs">
+    <h3>Print (ਦਿਖਾਓ / dikhao)</h3>
+    <pre>ਦਿਖਾਓ("Hello World")</pre>
+
+    <h3>Functions (ਪਰਿਭਾਸ਼ਾਕਰੋ / paribhashakaro)</h3>
+    <pre>ਪਰਿਭਾਸ਼ਾਕਰੋ ਜੋੜੋ(a, b):
+    ਵਾਪਸਦਿਓ a + b
+ਦਿਖਾਓ("ਜਵਾਬ =", ਜੋੜੋ(5, 3))</pre>
+
+    <h3>Input (ਲੇਜਾ / leja)</h3>
+    <pre>a = int(ਲੇਜਾ("ਅੰਕ 1:"))
+b = int(ਲੇਜਾ("ਅੰਕ 2:"))
+ਦਿਖਾਓ("ਯੋਗ =", a + b)</pre>
+
+    <h3>Conditionals</h3>
+    <pre>i = 5
+ਜੇ i > 3:
+    ਦਿਖਾਓ("i ਵੱਡਾ")
+ਨਹੀਂਜੇ i == 3:
+    ਦਿਖਾਓ("i ਬਰਾਬਰ")
+ਨਹੀਂਤਾਂ:
+    ਦਿਖਾਓ("i ਛੋਟਾ")</pre>
+
+    <h3>Loops</h3>
+    <pre>ਲਈ x in [1,2,3]:
+    ਦਿਖਾਓ("x =", x)
+i = 0
+ਜਦਤੱਕ i < 3:
+    ਦਿਖਾਓ("i =", i)
+    i += 1</pre>
+
+    <h3>Loop Control</h3>
+    <pre>ਲਈ x in [1,2,3]:
+    ਜੇ x == 2:
+        ਦਿਖਾਓ("ਦੂਜਾ ਮਿਲਿਆ")
+        ਤੋੜਦਿਓ
+    ਨਹੀਂਤਾਂ:
+        ਦਿਖਾਓ(x)</pre>
+
+    <h3>Booleans & None</h3>
+    <pre>ਜੇ ਸੱਚ:
+    ਦਿਖਾਓ("True")
+ਨਹੀਂਜੇ ਝੂਠ:
+    ਦਿਖਾਓ("False")
+ਦਿਖਾਓ("ਕੁਝਨਹੀਂ =", ਕੁਛ ਨਹੀਂ)</pre>
+
+    <h3>Exceptions</h3>
+    <pre>ਕੋਸ਼ਿਸ਼ਕਰੋ:
+    1 / 0
+ਤੋਂਇਲਾਵਾ ZeroDivisionError:
+    ਦਿਖਾਓ("Zero ਨਾਲ divide ਨਹੀਂ ਹੋ ਸਕਦਾ")
+ਅਖੀਰਕਰੇ:
+    ਦਿਖਾਓ("ਹਮੇਸ਼ਾਂ ਚੱਲਦਾ ਹੈ")</pre>
+
+    <h3>Imports</h3>
+    <pre>ਆਯਾਤਕਰੋ math ਦੇਤੌਰਤੇ m
+ਦਿਖਾਓ(m.sqrt(4))</pre>
+
+    <p>ਉਪਰਲੇ ਉਦਾਹਰਣ ਬਦਲੋ ਤੇ ਆਪਣਾ PB-Lang ਕੋਡ ਚਲਾਓ!</p>
+  </div>
+
+  <h2>PB-Lang Keywords</h2>
+  <div class="reference-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Python</th>
+          <th>Punjabi Script</th>
+          <th>Transliteration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>print</td><td>ਦਿਖਾਓ</td><td>dikhao</td></tr>
+        <tr><td>input</td><td>ਲੇਜਾ</td><td>leja</td></tr>
+        <tr><td>if</td><td>ਜੇ</td><td>je</td></tr>
+        <tr><td>elif</td><td>ਨਹੀਂਜੇ</td><td>nahije</td></tr>
+        <tr><td>else</td><td>ਨਹੀਂਤਾਂ</td><td>nahintan</td></tr>
+        <tr><td>for</td><td>ਲਈ</td><td>lai</td></tr>
+        <tr><td>while</td><td>ਜਦਤੱਕ</td><td>jadtak</td></tr>
+        <tr><td>def</td><td>ਪਰਿਭਾਸ਼ਾਕਰੋ</td><td>paribhashakaro</td></tr>
+        <tr><td>class</td><td>ਵਰਗ</td><td>varg</td></tr>
+        <tr><td>return</td><td>ਵਾਪਸਦਿਓ</td><td>wapisdeo</td></tr>
+        <tr><td>break</td><td>ਤੋੜਦਿਓ</td><td>tordeo</td></tr>
+        <tr><td>continue</td><td>ਜਾਰੀਰੱਖੋ</td><td>jarirakho</td></tr>
+        <tr><td>import</td><td>ਆਯਾਤਕਰੋ</td><td>aayatkaro</td></tr>
+        <tr><td>from</td><td>ਤੋਂ</td><td>to</td></tr>
+        <tr><td>as</td><td>ਦੇਤੌਰਤੇ</td><td>detaurte</td></tr>
+        <tr><td>with</td><td>ਨਾਲ</td><td>naal</td></tr>
+        <tr><td>try</td><td>ਕੋਸ਼ਿਸ਼ਕਰੋ</td><td>koshishkaro</td></tr>
+        <tr><td>except</td><td>ਤੋਂਇਲਾਵਾ</td><td>toillawa</td></tr>
+        <tr><td>finally</td><td>ਅਖੀਰਕਰੇ</td><td>akhirkare</td></tr>
+        <tr><td>True</td><td>ਸੱਚ</td><td>sach</td></tr>
+        <tr><td>False</td><td>ਝੂਠ</td><td>jhuth</td></tr>
+        <tr><td>None</td><td>ਕੁਝਨਹੀਂ</td><td>kuchnahi</td></tr>
+        <tr><td>or</td><td>ਜਾਂ</td><td>jam</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let pyodideReady = false;
+    let pyodide;
+
+    async function loadPyodideAndPackages() {
+      pyodide = await loadPyodide();
+      pyodide.runPython(`
+import sys
+from js import document, prompt
+
+class OutputCatcher:
+    def write(self, s):
+        if s.strip():
+            document.getElementById("output").textContent += s + "\\n"
+    def flush(self): pass
+
+sys.stdout = OutputCatcher()
+sys.stderr = OutputCatcher()
+
+def input(msg=""):
+    resp = prompt(str(msg))
+    return "" if resp is None else str(resp)
+`);
+      pyodideReady = true;
+    }
+    loadPyodideAndPackages();
+
+    const mapping = {
+      "ਦਿਖਾਓ": "print", "dikhao": "print",
+      "ਲੇਜਾ": "input", "leja": "input",
+      "ਜੇ": "if", "je": "if",
+      "ਨਹੀਂਜੇ": "elif", "nahije": "elif",
+      "ਨਹੀਂਤਾਂ": "else", "nahintan": "else",
+      "ਲਈ": "for", "lai": "for",
+      "ਜਦਤੱਕ": "while", "jadtak": "while",
+      "ਪਰਿਭਾਸ਼ਾਕਰੋ": "def", "paribhashakaro": "def",
+      "ਵਰਗ": "class", "varg": "class",
+      "ਵਾਪਸਦਿਓ": "return", "wapisdeo": "return",
+      "ਤੋੜਦਿਓ": "break", "tordeo": "break",
+      "ਜਾਰੀਰੱਖੋ": "continue", "jarirakho": "continue",
+      "ਆਯਾਤਕਰੋ": "import", "aayatkaro": "import",
+      "ਤੋਂ": "from", "to": "from",
+      "ਦੇਤੌਰਤੇ": "as", "detaurte": "as",
+      "ਨਾਲ": "with", "naal": "with",
+      "ਕੋਸ਼ਿਸ਼ਕਰੋ": "try", "koshishkaro": "try",
+      "ਤੋਂਇਲਾਵਾ": "except", "toillawa": "except",
+      "ਅਖੀਰਕਰੇ": "finally", "akhirkare": "finally",
+      "ਸੱਚ": "True", "sach": "True",
+      "ਝੂਠ": "False", "jhuth": "False",
+      "ਕੁਝਨਹੀਂ": "None", "kuchnahi": "None",
+      "ਜਾਂ": "or", "jam": "or",
+    };
+
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function translate(code) {
+      for (let pb in mapping) {
+        const re = new RegExp(`(?<!\\w)${escapeRegExp(pb)}(?!\\w)`, 'gu');
+        code = code.replace(re, mapping[pb]);
+      }
+      return code;
+    }
+
+    async function runCode() {
+      if (!pyodideReady) {
+        alert("Pyodide is still loading...");
+        return;
+      }
+      document.getElementById("output").textContent = "";
+      const rawCode = document.getElementById("pbCode").value;
+      const pyCode = translate(rawCode);
+
+      try {
+        await pyodide.runPythonAsync(pyCode);
+      } catch (err) {
+        document.getElementById("output").textContent += "Error: " + err + "\n";
+      }
+    }
+  </script>
+</body>
+</html>
